@@ -122,11 +122,12 @@ Valid insert succeeds; invalid insert fails.
 Schema validation enforced successfully.
 
 🧪 EXPERIMENT – 4: Advanced Validation
-🎯 Aim
+🎯 Aim:
 
 To apply enum, range, and pattern validation.
 
-💻 Query
+💻 Query:
+
 db.createCollection("diagnosis", {
   validator: {
     $jsonSchema: {
@@ -172,11 +173,12 @@ Valid insert succeeds; invalid insert fails.
 Advanced validation rules applied successfully.
 
 🧪 EXPERIMENT – 5: Modify Validation
-🎯 Aim
+🎯 Aim:
 
 To modify validation rules in an existing collection.
 
-💻 Query
+💻 Query:
+
 db.createCollection("monitoring")
 
 db.runCommand({

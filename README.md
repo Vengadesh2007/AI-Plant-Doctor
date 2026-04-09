@@ -1,9 +1,11 @@
-🧪 EXPERIMENT – 1: CRUD Operations
-🎯 Aim
+AI PLANT DOCTOR SYSTEM
+🧪 EXPERIMENT – 1
+(CRUD Operations)
+🔹 Aim
 
-To perform Create, Read, Update, and Delete operations for plant disease records.
+To perform Create, Read, Update, and Delete operations on plant disease records.
 
-💻 Query
+🔹 Query
 use aiPlantDoctorDB
 
 // CREATE
@@ -21,7 +23,7 @@ db.plants.insertMany([
     plantName: "Potato",
     disease: "Late Blight",
     confidence: 92,
-    isHealthy: false
+    isHealthy: true
   },
   {
     plantId: "PLT103",
@@ -50,20 +52,21 @@ db.plants.updateMany(
 // DELETE
 db.plants.deleteOne({ plantId: "PLT103" })
 db.plants.deleteMany({ isHealthy: false })
-📌 Output
+🔹 O/P
 
-Plant records inserted, retrieved, updated, and deleted successfully.
+Documents inserted, retrieved, updated, and deleted successfully.
 
-✅ Result
+🔹 Result
 
 CRUD operations were successfully performed.
 
-🧪 EXPERIMENT – 2: Collection Creation & Dropping
-🎯 Aim
+🧪 EXPERIMENT – 2
+(Basic Collection Creation & Dropping)
+🔹 Aim
 
-To create and drop a collection.
+To create, display and drop a collection.
 
-💻 Query
+🔹 Query
 use aiPlantDoctorDB
 
 db.createCollection("plants")
@@ -71,20 +74,21 @@ db.createCollection("plants")
 show collections
 
 db.plants.drop()
-📌 Output
+🔹 O/P
 
 Collection created, displayed, and dropped successfully.
 
-✅ Result
+🔹 Result
 
-The collection was successfully created and removed.
+The plants collection was successfully created and dropped.
 
-🧪 EXPERIMENT – 3: Required Fields & Data Types
-🎯 Aim
+🧪 EXPERIMENT – 3
+(Collection with Required Fields & Data Types)
+🔹 Aim
 
 To enforce required fields using schema validation.
 
-💻 Query
+🔹 Query
 db.createCollection("plants", {
   validator: {
     $jsonSchema: {
@@ -100,7 +104,7 @@ db.createCollection("plants", {
     }
   }
 })
-✔ Valid Insert
+🔹 Valid Insert
 db.plants.insertOne({
   plantId: "PLT201",
   plantName: "Wheat",
@@ -108,26 +112,26 @@ db.plants.insertOne({
   confidence: 80,
   isHealthy: false
 })
-❌ Invalid Insert
+🔹 Invalid Insert
 db.plants.insertOne({
   plantId: "PLT202",
   disease: "Blight"
 })
-📌 Output
+🔹 O/P
 
-Valid insert succeeds; invalid insert fails.
+Valid insert succeeds. Invalid insert fails with validation error.
 
-✅ Result
+🔹 Result
 
-Schema validation enforced successfully.
+Schema validation enforced required fields.
 
-🧪 EXPERIMENT – 4: Advanced Validation
-🎯 Aim:
+🧪 EXPERIMENT – 4
+(Advanced Validation – Enum, Range, Pattern)
+🔹 Aim
 
-To apply enum, range, and pattern validation.
+To apply advanced validation rules.
 
-💻 Query:
-
+🔹 Query
 db.createCollection("diagnosis", {
   validator: {
     $jsonSchema: {
@@ -152,33 +156,33 @@ db.createCollection("diagnosis", {
   validationLevel: "strict",
   validationAction: "error"
 })
-✔ Valid Insert
+🔹 Valid Insert
 db.diagnosis.insertOne({
   diagId: "DIA101",
   plantName: "Tomato",
   severity: 7
 })
-❌ Invalid Insert
+🔹 Invalid Insert
 db.diagnosis.insertOne({
   diagId: "101",
   plantName: "Mango",
   severity: 20
 })
-📌 Output
+🔹 O/P
 
-Valid insert succeeds; invalid insert fails.
+Valid insert succeeds. Invalid insert fails.
 
-✅ Result
+🔹 Result
 
-Advanced validation rules applied successfully.
+Advanced validation rules were successfully applied.
 
-🧪 EXPERIMENT – 5: Modify Validation
-🎯 Aim:
+🧪 EXPERIMENT – 5
+(Modify Validation on Existing Collection)
+🔹 Aim
 
-To modify validation rules in an existing collection.
+To add validation rules to an existing collection.
 
-💻 Query:
-
+🔹 Query
 db.createCollection("monitoring")
 
 db.runCommand({
@@ -192,7 +196,9 @@ db.runCommand({
           bsonType: "string",
           pattern: "^PLT[0-9]{3}$"
         },
-        date: { bsonType: "string" },
+        date: {
+          bsonType: "string"
+        },
         healthStatus: {
           enum: ["Healthy", "Diseased", "Critical"]
         }
@@ -201,27 +207,27 @@ db.runCommand({
   },
   validationLevel: "moderate"
 })
-📌 Output
+🔹 O/P
 { ok: 1 }
-✅ Result
+🔹 Result
 
-Validation rules updated successfully.
+Validation rules were successfully modified.
 
-🧪 EXPERIMENT – 6: View Validation Rules
-🎯 Aim
+🧪 EXPERIMENT – 6
+(View & Verify Validation Rules)
+🔹 Aim
 
-To view schema validation rules.
+To view validation rules applied to a collection.
 
-💻 Query
+🔹 Query
 db.getCollectionInfos({ name: "diagnosis" })
-📌 Output
+🔹 O/P
 
-Displays:
+Displays validation schema including:
 
 Required fields
 Enum values
 Pattern rules
-Data constraints
-✅ Result
+🔹 Result
 
-Validation rules verified successfully.
+Validation rules were successfully viewed and verified.

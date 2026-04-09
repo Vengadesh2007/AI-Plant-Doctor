@@ -1,5 +1,4 @@
-🔹 EXPERIMENT – 1
-CRUD Operations (AI Plant Doctor)
+🧪 EXPERIMENT – 1: CRUD Operations
 🎯 Aim
 
 To perform Create, Read, Update, and Delete operations for plant disease records.
@@ -57,13 +56,12 @@ Plant records inserted, retrieved, updated, and deleted successfully.
 
 ✅ Result
 
-CRUD operations were successfully performed on plant data.
+CRUD operations were successfully performed.
 
-🔹 EXPERIMENT – 2
-Collection Creation & Dropping
+🧪 EXPERIMENT – 2: Collection Creation & Dropping
 🎯 Aim
 
-To create and drop a plant collection.
+To create and drop a collection.
 
 💻 Query
 use aiPlantDoctorDB
@@ -79,13 +77,12 @@ Collection created, displayed, and dropped successfully.
 
 ✅ Result
 
-The plants collection was successfully created and removed.
+The collection was successfully created and removed.
 
-🔹 EXPERIMENT – 3
-Collection with Required Fields & Data Types
+🧪 EXPERIMENT – 3: Required Fields & Data Types
 🎯 Aim
 
-To enforce required fields for plant disease detection data.
+To enforce required fields using schema validation.
 
 💻 Query
 db.createCollection("plants", {
@@ -118,17 +115,16 @@ db.plants.insertOne({
 })
 📌 Output
 
-Valid insert succeeds, invalid insert fails.
+Valid insert succeeds; invalid insert fails.
 
 ✅ Result
 
-Schema validation enforced required plant data fields.
+Schema validation enforced successfully.
 
-🔹 EXPERIMENT – 4
-Advanced Validation (Enum, Range, Pattern)
+🧪 EXPERIMENT – 4: Advanced Validation
 🎯 Aim
 
-To apply advanced validation on plant disease categories.
+To apply enum, range, and pattern validation.
 
 💻 Query
 db.createCollection("diagnosis", {
@@ -169,17 +165,16 @@ db.diagnosis.insertOne({
 })
 📌 Output
 
-Valid insert works, invalid fails.
+Valid insert succeeds; invalid insert fails.
 
 ✅ Result
 
 Advanced validation rules applied successfully.
 
-🔹 EXPERIMENT – 5
-Modify Validation on Existing Collection
+🧪 EXPERIMENT – 5: Modify Validation
 🎯 Aim
 
-To update validation rules for plant monitoring data.
+To modify validation rules in an existing collection.
 
 💻 Query
 db.createCollection("monitoring")
@@ -210,21 +205,20 @@ db.runCommand({
 
 Validation rules updated successfully.
 
-🔹 EXPERIMENT – 6
-View & Verify Validation Rules
+🧪 EXPERIMENT – 6: View Validation Rules
 🎯 Aim
 
-To view validation rules for plant diagnosis collection.
+To view schema validation rules.
 
 💻 Query
 db.getCollectionInfos({ name: "diagnosis" })
 📌 Output
 
-Displays schema rules including:
+Displays:
 
 Required fields
 Enum values
-Pattern validation
+Pattern rules
 Data constraints
 ✅ Result
 
